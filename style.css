@@ -1,0 +1,44 @@
+body,
+html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: lemonchiffon;
+}
+header {
+  min-height: 80px;
+  width: 100%;
+  border-bottom: 2px solid grey;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -8px;
+}
+
+.cart-button {
+  height: 40px;
+  width: 130px;
+
+  border-radius: 20px;
+  font-size: 22px;
+  background-color: darkorange;
+  color: darkgreen;
+}
+.goods-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.goods-item {
+  background-color: white;
+  min-width: 210px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
