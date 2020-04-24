@@ -27,7 +27,6 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
 }
 .goods-item {
   background-color: white;
