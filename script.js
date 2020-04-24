@@ -1,8 +1,6 @@
 "use strict";
-
 function makeGETRequest(url, callback) {
   var xhr;
-
   if (window.XMLHttpRequest) {
     xhr = new XMLHttpRequest();
   } else if (window.ActiveXObject) {
@@ -10,10 +8,15 @@ function makeGETRequest(url, callback) {
   }
 
   xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      callback(xhr.responseText);
-    }
+    const promise = new Promise((resolve, reject) => {
+      if (xhr.readyState === 4) {
+        resolve(callback(xhr.responseText));
+      }
+    });
+
+    return promise;
   };
+  xhr.onreadystatechange().then(() => {});
 
   xhr.open("GET", url, true);
   xhr.send();
@@ -24,6 +27,7 @@ class GoodsItem {
     this.title = title;
     this.price = price;
   }
+
   render() {
     return `<div class="goods-item"><h3>${this.title}</h3><p>${this.price}</p></div>`;
   }
@@ -67,16 +71,16 @@ list.fetchGoods(() => {
 //     this.goods = [
 //       { title: "Shirt", price: 150 },
 //       { title: "Socks", price: 50 },
-//       { title: "Jacket", price: 350 },
-//       { title: "Shoes", price: 250 },
-//     ];
-//   }
-//   render() {
-//     let listHtml = "";
-//     this.goods.forEach((good) => {
-//       const goodItem = new GoodsItem(good.title, good.price);
-//       listHtml += goodItem.render();
-//     });
+//     { title: "Jacket", price: 350 },
+//     { title: "Shoes", price: 250 },
+//   ];
+// }
+// render() {
+//   let listHtml = "";
+//   this.goods.forEach((good) => {
+//     const goodItem = new GoodsItem(good.title, good.price);
+//     listHtml += goodItem.render();
+//   });
 //     document.querySelector(".goods-list").innerHTML = listHtml;
 //   }
 //   //метод, определяющий суммарную стоимость всех товаров

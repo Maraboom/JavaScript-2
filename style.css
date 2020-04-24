@@ -27,7 +27,7 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  
 }
 .goods-item {
   background-color: white;
