@@ -1,0 +1,26 @@
+.form-wrap {
+  max-width: 40%;
+  background: #fafafa;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305a72;
+  
+ 
+}
+
+.fieldStyle {
+  display: block;
+  margin-bottom: 10px;
+  min-height: 35px;
+  box-sizing: border-box;
+
+  padding: 8px;
+  outline: none;
+  border: 1px solid #b0cfe0;
+}
+.fieldStyle:focus{
+	box-shadow: 0 0 5px #B0CFE0;
+	border:1px solid #B0CFE0;
+}
