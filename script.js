@@ -1,47 +1,25 @@
 "use strict";
 function makeGETRequest(url, callback) {
-  var xhr;
+  const promise = new Promise((resolve, reject) => {
+    var xhr;
+    if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
 
-  // const browser = function () {
-  //   const promise = new Promise((resolve, reject) => {
-  //     if (window.XMLHttpRequest) {
-  //       resolve(xhr = new XMLHttpRequest());
-  //     } else if(window.ActiveXObject) {
-  //       resolve(xhr = new ActiveXObject("Microsoft.XMLHTTP"));
-  //     }
-  //   });
-  //   return promise;
-  // };
-
-  if (window.XMLHttpRequest) {
-    xhr = new XMLHttpRequest();
-  } else if (window.ActiveXObject) {
-    xhr = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
-  xhr.onreadystatechange = function () {
-    const promise = new Promise((resolve, reject) => {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
-        resolve(callback(xhr.responseText));
+        callback(xhr.responseText);
       }
-    });
-
-    return promise;
-  };
-  // browser()
-  // .then (xhr.open("GET", url, true))
-  // .then (xhr.send())
-
-  //   .then(() => {
-  //     return xhr.onreadystatechange();
-  // })
-  // .then(() => {});
-  xhr.onreadystatechange();
-
-  xhr.open("GET", url, true);
-  xhr.send();
+    };
+    xhr.open("GET", url, true);
+    xhr.send();
+  });
+  promise.then(() => {
+    xhr.onreadystatechange();
+  });
 }
-
 class GoodsItem {
   constructor(title, price) {
     this.title = title;
