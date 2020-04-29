@@ -7,12 +7,15 @@
   border-radius: 10px;
   border: 6px solid #305a72;
 }
-.flex {
+/* .flex {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-.fieldStyle {
+  align-items: center;
+} */
+.fieldStyle,
+.areaStyle {
   display: block;
   margin-bottom: 10px;
   min-height: 35px;
@@ -21,13 +24,13 @@
   padding: 8px;
   outline: none;
   border: 1px solid #b0cfe0;
-  width: 49%;
+  width: 50%;
 }
 .fieldStyle:focus {
   box-shadow: 0 0 5px #b0cfe0;
   border: 1px solid #b0cfe0;
 }
-textarea.fieldStyle {
+textarea.areaStyle {
   width: 100%;
   min-height: 100px;
 }
@@ -45,4 +48,15 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background: linear-gradient(to bottom, #2d77a2 5%, #337da8 100%);
   background-color: #28739e;
+}
+.error {
+  color: red;
+  
+  
+  margin-bottom: 1px;
+  
+  box-sizing: border-box;
+  
+  font-size: 12px;
+  
 }
